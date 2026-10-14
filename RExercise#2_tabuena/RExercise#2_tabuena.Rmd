@@ -1,0 +1,178 @@
+---
+title: 'Exercise #2'
+author: "Bethany Tabuena"
+date: "2026-09-30"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+a <- 17 
+b <- 5 
+
+a + b
+a - b 
+a * b 
+a / b 
+a %% b 
+```
+
+[1] 22
+[1] 12
+[1] 85
+[1] 3.4
+[1] 2
+
+```{r}
+a %% b
+a %/% b
+```
+
+[1] 2
+[1] 3
+
+```{r}
+2^10
+```
+[1] 1024
+
+```{r}
+17/5
+17 %% 5 
+17 %/% 5
+```
+[1] 3.4
+[1] 2
+[1] 3
+
+Q1-Answer: They relate to each other mathematically because they use the different arithmetic operations but the %% returns a remainder and the %/% returns a integer division or is used for integer division. 
+
+Q2-Answer: The output of 10 %% 3 is 1 because the remainder of it when divided is one. the  output of 10%/%3 is 3 because the quotient when 10 is divided by 3 is 3 and the remainder is ignored. my prediction is correct because when i try it, it shows the same answer. 
+
+```{r}
+x <- 42
+y <- 42L
+z <- "42"
+w <- TRUE
+v <- 3 + 2i
+
+typeof(x)
+typeof(y)
+typeof(z)
+typeof(w)
+typeof(v)
+
+```
+[1] "double"
+[1] "integer"
+[1] "character"
+[1] "logical"
+[1] "complex"
+
+```{r}
+class(x)
+class(y)
+class(z)
+class(w)
+class(v)
+```
+[1] "numeric"
+[1] "integer"
+[1] "character"
+[1] "logical"
+[1] "complex"
+
+```{r}
+mode(x)
+mode(y)
+mode(z)
+mode(w)
+mode(v)
+```
+[1] "numeric"
+[1] "numeric"
+[1] "character"
+[1] "logical"
+[1] "complex"
+
+Q3- Answer: The variable x is is stored as double and written without the suffix L which in R default numeric type for number. The variable y is stored as an integer because the L suffix tells the R to use the integer type. 
+
+q4- Answer: Yes it shows different for the same object because typeof() describes the internal storage type, while class() describes the objects class and the mode() give more general description of its data. For example, typeof(x) returns"double", class(x) and mode(x) return "numeric".
+
+### Part C
+```{r}
+num_string <- "123"
+
+converted_num <- as.numeric(num_string)
+typeof(converted_num)
+class(converted_num)
+mode(converted_num)
+```
+[1] "double"
+[1] "numeric"
+[1] "numeric"
+
+```{r}
+as.logical(0)
+as.logical(1)
+```
+[1] FALSE
+[1] TRUE
+
+```{r}
+bad_string <- "hello123"
+
+as.numeric(bad_string)
+```
+[1] NA
+Warning message:
+NAs introduced by coercion
+
+Q5-Answer1: R gives a warning to inform us that something went wrong but allows the code to continue running. 
+Q5-Answer2: Ignoring warnings may lead to missing values or incorrect result. 
+
+Q6-Answer1: Both produce TRUE
+Q6-Answer2: After testing, both return TRUE because R converts nonzero numbers to TRUE and zero to FALSE.
+
+### PART D
+
+```{r}
+first_name <- "Juan"
+last_name <- "Dela Cruz"
+
+print(first_name)
+print(last_name)
+
+cat(first_name, last_name, "\n")
+```
+[1] "Juan"
+[1] "Dela Cruz"
+
+Juan Dela Cruz
+
+```{r}
+paste(first_name, last_name)
+paste0(first_name, last_name)
+```
+[1] "Juan Dela Cruz"
+[1] "JuanDela Cruz"
+
+```{r}
+paste(first_name, last_name, sep = "-")
+```
+[1] "Juan-Dela Cruz"
+
+```{r}
+full_name <- paste(first_name, last_name)
+age <- 21
+paste0(full_name,  " is ",  age,  " years old")
+```
+[1] "Juan Dela Cruz is 21 years old"
+
+Q7-Answer: paste() adds a space between string by default, while paste0() combines strings without adding a separator.
+
+
+
