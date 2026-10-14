@@ -172,7 +172,3 @@ paste0(full_name,  " is ",  age,  " years old")
 ```
 [1] "Juan Dela Cruz is 21 years old"
 
-Q7-Answer: paste() adds a space between string by default, while paste0() combines strings without adding a separator.
-
-
-
