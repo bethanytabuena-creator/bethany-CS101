@@ -1,0 +1,213 @@
+---
+title: "RExercise#3_tabuena"
+author: "Bethany B. Tabuena BSIT 2A"
+date: "October 16, 2026"
+output: html_document
+---
+
+## R Lab: Data Structures - Vectors and Lists
+## Bethany B. Tabuena
+
+## Part A — Creating Vectors: c(), seq(), rep()
+
+```{r}
+# TODO: Create a numeric vector called scores containing: 88, 92, 79, 95, 84
+
+scores <- c(88, 92, 79, 95, 85)
+
+```
+
+
+```{r}
+# Then create a character vector called subjects containing:
+# "Math", "Science", "English", "History", "PE"
+
+subjects <- c("Math", "Science", "English", "History", "PE")
+
+```
+
+
+```{r}
+# TODO: Use seq() to create a vector called odds containing odd numbers
+# from 1 to 19 (hint: use the "by" argument)
+
+odds <- seq(1, 19, by = 2)
+
+```
+
+
+```{r}
+# TODO: Use seq() with length.out to create a vector of exactly 5 evenly
+# spaced numbers between 0 and 1
+
+even <- seq(0,1, length.out = 5)
+```
+
+
+```{r}
+# TODO: Use rep() to create a vector that repeats the value "A" 4 times
+
+A_repeat <- rep("A", 4)
+```
+
+
+```{r}
+# TODO: Use rep() with the "each" argument to turn c("A", "B") into
+# "A" "A" "B" "B" (each element repeated twice, in order
+
+A_B_each <- rep(c("A","B"), each = 2)
+
+```
+
+
+```{r}
+# TODO: Use rep() with the "times" argument to turn c("A", "B") into
+# "A" "B" "A" "B" (the whole sequence repeated twice)
+
+A_B_times <- rep(c("A", "B"),2)
+```
+**Question #1:** 
+Set up a vector named age, consisting of 15, 28, 32, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 12, 42, 53, 41, 51, 35, 24, 33, 8.
+
+```{r}
+age <- c(15, 28, 32, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 12, 42, 53, 41, 51, 35, 24, 33, 8)
+```
+
+a. How many data points?
+- The vector named "age" has 34 data points. 
+b. Find the reciprocal of age?
+
+```{r}
+reciprocal_age <- 1/age
+```
+ 
+c. Assign also new_age <- c(age, 0, age). What happens to new_age?
+
+```{r}
+new_age <- c(age, 0, age)
+```
+- The vector "age" is copied and the the "0" is put at the middle and again the vector "age is copied, so it means that the vector "age is doubled in the vector "new_age" and the "0" is added in the middle of them. 
+
+d. Find the minimum and the maximum value of age.
+
+```{r}
+min(age)
+max(age)
+```
+
+**Question #2:** 
+rep(c("A","B"), each = 2) and rep(c("A","B"), times = 2) both produce a vector of length 4, but with different element orders.
+Explain in your own words the
+difference between each and times.
+
+-rep(c("A","B"), each = 2) and rep(c("A","B"), times = 2) both produce a vector length of 4 but have different elements order because 
+rep(c("A","B"), each = 2) repeat each vector 2 times, while rep(c("A","B"), times = 2) repeat a vector 2 times.
+
+**Question #3:**
+Compare seq(1, 20, by = 2) with seq(1, 20, length.out = 5). What does each argument (by vs length.out) control, and when would you use one over the other in a real analysis?
+
+-So seq(1, 20, by = 2) is used to set the steps between the numbers and is used to have a fixed intervals between 2 units. While seq(1, 20, length.out = 5) creates exactly that many evenly spaced values and is used to know how many points you need. So "by" is use for fixed steps and the "length.out" is used when you need a specific number of points across a range. 
+
+**Question #4:**
+a. Generate a sequence for 20 to 60. Name the vector as vec_num
+
+```{r}
+vec_num <- seq(20,60)
+```
+
+b. Get the mean for vec_num.
+
+```{r}
+mean(vec_num)
+```
+ the mean of vec_num is 40
+
+c. Get the sum for vec_num. 
+
+```{r}
+sum(vec_num)
+```
+ the sum of vec_num is 1640
+
+d. How many data points are there in vec_num?
+
+```{r}
+length(vec_num)
+```
+ there are 41 data points in vector named vec_num. 
+
+## Part B — Subsetting (Accessing) Vectors
+
+```{r}
+grades <- c(88, 92, 79, 95, 84)
+
+# TODO: Access the 3rd element of grades using positional indexing
+
+grades[3]
+
+# TODO: Access the 1st abd 4th element of grades using positional indexing
+
+grades[c(1,4)]
+
+grades <- c(88, 92, 79, 95, 84)
+names(grades) <- c("Math", "Science", "English", "History", "PE")
+
+# TODO: Access "Science" and "PE" together using their names
+
+grades[c("Science", "PE")]
+```
+
+```{r}
+grades <- c(88, 92, 79, 95, 84)
+# names(grades) <- c("Math", "Science", "English", "History", "PE")
+
+# TODO: Return all elements of grades EXCEPT the 1st and 4th, using
+# negative indexing, e.g. grades[-c(...)]
+
+grades[-c(1,4)]
+
+```
+
+```{r}
+grades <- c(88, 92, 79, 95, 84)
+names(grades) <- c("Math", "Science", "English", "History", "PE")
+
+# TODO: Use a logical condition to return only the grades that are
+# greater than or equal to 85 (hint: grades[grades >= 85])
+
+grades[grades >= 85]
+
+```
+
+
+**Question #5:** 
+ -Negative indexing (grades[-1]) removes an element, while logical indexing (grades[grades >= 85]) filters by a condition.
+
+ -Describe a real situation where you would need negative indexing, and a different situation where logical indexing would be the better tool.
+ 
+-Negative indexing it use when you know exactly which position to remove like dropping one outlier row you already identified. While logical indexing is used when you want to keep everything that's meets a rule, for example keeping only test scores above a passing threshold.
+
+**Question #6:**
+```{r}
+# -What happens if you run grades[10] (an index that doesn’t exist)? Run it, observe the result, and explain why R responds this way instead of throwing an error.
+
+grades <- c(85, 90, 78, 92, 88, 76)
+grades[10]
+
+```
+-Running grades[10] return NA instead of an error because in R, it treats the missing position as "unknown value" rather than crashing your whole script. This way, code keeps running even when some indices don't exist. 
+
+**Question #7:**
+Print a vector with the integers between 1 and 100 that are not divisible by 3, 5 and 7 using filter option.
+  Filter(function(i) { all(i %% c(3,5,7) != 0) }, seq(100))
+  Write the R code and its output.
+  
+```{r}
+Filter(function(i) { all(i %% c(3, 5, 7) != 0) }, seq(100))
+```
+[1]  1  2  4  8 11 13 16 17 19 22 23 26 29
+[14] 31 32 34 37 38 41 43 44 46 47 52 53 58
+[27] 59 61 62 64 67 68 71 73 74 76 79 82 83
+[40] 86 88 89 92 94 97
+
+
