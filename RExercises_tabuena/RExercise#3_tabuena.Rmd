@@ -1,4 +1,15 @@
 ---
+title: "RExercises#3_tabuena2"
+author: "Bethany Tabuena"
+date: "2026-10-21"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+---
 title: "RExercise#3_tabuena"
 author: "Bethany B. Tabuena BSIT 2A"
 date: "October 16, 2026"
@@ -14,6 +25,7 @@ output: html_document
 # TODO: Create a numeric vector called scores containing: 88, 92, 79, 95, 84
 
 scores <- c(88, 92, 79, 95, 85)
+scores
 
 ```
 
@@ -23,6 +35,7 @@ scores <- c(88, 92, 79, 95, 85)
 # "Math", "Science", "English", "History", "PE"
 
 subjects <- c("Math", "Science", "English", "History", "PE")
+subjects
 
 ```
 
@@ -32,6 +45,7 @@ subjects <- c("Math", "Science", "English", "History", "PE")
 # from 1 to 19 (hint: use the "by" argument)
 
 odds <- seq(1, 19, by = 2)
+odds
 
 ```
 
@@ -41,6 +55,7 @@ odds <- seq(1, 19, by = 2)
 # spaced numbers between 0 and 1
 
 even <- seq(0,1, length.out = 5)
+even
 ```
 
 
@@ -48,6 +63,7 @@ even <- seq(0,1, length.out = 5)
 # TODO: Use rep() to create a vector that repeats the value "A" 4 times
 
 A_repeat <- rep("A", 4)
+A_repeat
 ```
 
 
@@ -56,6 +72,7 @@ A_repeat <- rep("A", 4)
 # "A" "A" "B" "B" (each element repeated twice, in order
 
 A_B_each <- rep(c("A","B"), each = 2)
+A_B_each
 
 ```
 
@@ -65,6 +82,7 @@ A_B_each <- rep(c("A","B"), each = 2)
 # "A" "B" "A" "B" (the whole sequence repeated twice)
 
 A_B_times <- rep(c("A", "B"),2)
+A_B_times
 ```
 **Question #1:** 
 Set up a vector named age, consisting of 15, 28, 32, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 12, 42, 53, 41, 51, 35, 24, 33, 8.
@@ -75,24 +93,34 @@ age <- c(15, 28, 32, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20,
 
 a. How many data points?
 - The vector named "age" has 34 data points. 
+
 b. Find the reciprocal of age?
 
 ```{r}
+age <- c(15, 28, 32, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 12, 42, 53, 41, 51, 35, 24, 33, 8)
+
 reciprocal_age <- 1/age
+reciprocal_age
 ```
  
 c. Assign also new_age <- c(age, 0, age). What happens to new_age?
 
 ```{r}
+age <- c(15, 28, 32, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 12, 42, 53, 41, 51, 35, 24, 33, 8)
+
 new_age <- c(age, 0, age)
+new_age
 ```
 - The vector "age" is copied and the the "0" is put at the middle and again the vector "age is copied, so it means that the vector "age is doubled in the vector "new_age" and the "0" is added in the middle of them. 
 
 d. Find the minimum and the maximum value of age.
 
 ```{r}
-min(age)
-max(age)
+age <- c(15, 28, 32, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 12, 42, 53, 41, 51, 35, 24, 33, 8)
+
+new_age <- c(age, 0, age)
+min(new_age)
+max(new_age)
 ```
 
 **Question #2:** 
@@ -113,33 +141,38 @@ a. Generate a sequence for 20 to 60. Name the vector as vec_num
 
 ```{r}
 vec_num <- seq(20,60)
+vec_num
 ```
 
 b. Get the mean for vec_num.
 
 ```{r}
+vec_num <- seq(20,60)
 mean(vec_num)
 ```
- the mean of vec_num is 40
+-the mean of vec_num is 40
 
 c. Get the sum for vec_num. 
 
 ```{r}
+vec_num <- seq(20,60)
 sum(vec_num)
 ```
- the sum of vec_num is 1640
+-the sum of vec_num is 1640
 
 d. How many data points are there in vec_num?
 
 ```{r}
+vec_num <- seq(20,60)
 length(vec_num)
 ```
- there are 41 data points in vector named vec_num. 
+-there are 41 data points in vector named vec_num. 
 
 ## Part B — Subsetting (Accessing) Vectors
 
 ```{r}
 grades <- c(88, 92, 79, 95, 84)
+names(grades) <- c("Math", "Science", "English", "History", "PE")
 
 # TODO: Access the 3rd element of grades using positional indexing
 
@@ -149,12 +182,10 @@ grades[3]
 
 grades[c(1,4)]
 
-grades <- c(88, 92, 79, 95, 84)
-names(grades) <- c("Math", "Science", "English", "History", "PE")
-
 # TODO: Access "Science" and "PE" together using their names
 
 grades[c("Science", "PE")]
+
 ```
 
 ```{r}
@@ -209,5 +240,174 @@ Filter(function(i) { all(i %% c(3, 5, 7) != 0) }, seq(100))
 [14] 31 32 34 37 38 41 43 44 46 47 52 53 58
 [27] 59 61 62 64 67 68 71 73 74 76 79 82 83
 [40] 86 88 89 92 94 97
+
+## Part C - Vector and Operations and append()
+
+```{r}
+x <- c(1, 2, 3, 4)
+y <- c(10, 20, 30, 40)
+
+# TODO: Add x and y element-wise, and print the result
+
+x + y
+
+# TODO: Multiply every element of x by 2
+
+x * 2
+```
+
+```{r}
+z <- c(1, 2, 3, 4, 5, 6)
+short <- c(1, 0)
+
+# TODO: Add z and short together and print the result. Run this even
+# though the vectors are different lengths -- observe what R does.
+
+z + short
+
+```
+
+```{r}
+fruits <- c("apple", "banana", "cherry")
+
+# TODO: Use append() to add "date" to the end of fruits
+
+# TODO: Use append() with the "after" argument to insert "kiwi" between
+# "apple" and "banana" (i.e., after position 1)
+
+append(fruits, "date")
+append(fruits, "kiwi", after = 1)
+
+```
+
+**Question #8:**
+```{r}
+ #-In the vectors-recycling chunk, z has 6 elements and short has only 2. R still produced an answer instead of an error.
+
+ #-Explain, in your own words, what R’s “recycling rule” did to short to make the addition work.
+
+z <- c(1, 2, 3, 4, 5, 6)
+short <- c(1, 0)
+
+z + short
+```
+
+-R uses its recycling rule to repeat a shorter vector when performing element-wise operations. If the longer vector's length is a multiple of the shorter vector's length, recycling generally occurs without a warning. Otherwise, R warns that the lengths are not exact multiples. 
+
+**Question #9:**
+
+```{r}
+#Now try adding z (length 6) to c(1, 0, 1) (length 3) instead. Does it work cleanly?
+z <- c(1, 2, 3, 4, 5, 6)
+
+z + c(1, 0, 1)
+
+```
+
+```{r}
+#Then try adding z to c(1, 0, 1, 1) (length 4). Compare the warning (or lack of one) in each case, and explain what condition determines whether R recycles silently versus with a warning.
+
+z <- c(1, 2, 3, 4, 5, 6)
+
+z + c(1, 0, 1, 1)
+```
+-R recycles without a warning when the longer vectors length is a multiple of the shorter vectors length.Otherwise, it gives a warning because the recycling is incomplete.
+
+## Part D — Lists: Creating and Subsetting
+
+```{r}
+# TODO: Create a list called student with these named elements:
+# name = "Maria Santos", age = 20, grades = c(88, 92, 79),
+# is_enrolled = TRUE
+
+student <- list(
+  name = "Maria Santos",
+  age = 20,
+  grades = c(88, 92, 79),
+  is_enrolled = TRUE
+)
+
+# TODO: Access the "grades" element of student using single brackets
+# student["grades"] -- then check its type with class()
+
+student["grades"]
+class(student["grades"])
+
+# TODO: Access the "grades" element of student using double brackets
+# student[["grades"]] -- then check its type with class()
+
+student["grades"]
+class(student[["grades"]])
+
+# TODO: Access the "name" element of student using the $ operator
+# student$name
+
+student$name
+
+# TODO: From student, extract just the SECOND grade in the grades vector
+# in a single expression, e.g. student[["grades"]][2] or student$grades[2]
+
+student[["grades"]][2]
+
+```
+
+**Question #10:**
+
+ -student["grades"] and student[["grades"]] look similar but return objects of different classes.
+
+ -Run class() on each and explain the difference in what single-bracket [ ] versus double-bracket [[ ]] return from a list.
+ 
+```{r}
+student <- list(
+  name = "Maria Santos",
+  age = 20,
+  grades = c(88, 92, 79),
+  is_enrolled = TRUE
+)
+
+class(student["grades"])
+
+class(student[["grades"]])
+```
+
+-The single brackets[] return a list containing the selected element.
+-The double brackets[[]] extract the element itself. 
+
+
+**Question #11:**
+
+Why do you think R makes a distinction between [ ] and [[ ]] for lists, but a vector only needs [ ]? Think about what a list can contain that a vector cannot.
+
+-List can contain different data types, so R provides both ways to select elements.A vector generally contains values of the same type and uses [] for subsetting. 
+
+## Part E — Critical Thinking Challenge
+
+```{r}
+inventory <- list(
+  item = c("Notebook", "Pen", "Eraser"),
+  price = c(25.50, 10.00, 5.00),
+  in_stock = c(TRUE, TRUE, FALSE)
+)
+
+# TODO: Using what you learned in Parts B and D, print only the items
+# (from inventory$item) that are currently in stock (in_stock == TRUE)
+
+inventory$item[inventory$in_stock]
+```
+
+```{r}
+# TODO: A new product "Ruler" priced at 15.00 and in stock (TRUE) needs
+# to be added to inventory. Use append() to add "Ruler" to
+# inventory$item, 15.00 to inventory$price, and TRUE to inventory$in_stock.
+# (You will need three separate append() calls, one per vector.)
+
+inventory$item <- append(inventory$item, "Ruler")
+
+inventory$price <- append(inventory$price, 15.00)
+
+inventory$in_stock <- append(inventory$in_stock, TRUE)
+
+inventory
+```
 
 
