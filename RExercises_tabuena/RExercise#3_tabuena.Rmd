@@ -1,5 +1,5 @@
 ---
-title: "RExercises#3_tabuena2"
+title: "R Lab: Data Structures - Vectors and Lists"
 author: "Bethany Tabuena"
 date: "2026-10-21"
 output: html_document
@@ -8,16 +8,6 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
----
-title: "RExercise#3_tabuena"
-author: "Bethany B. Tabuena BSIT 2A"
-date: "October 16, 2026"
-output: html_document
----
-
-## R Lab: Data Structures - Vectors and Lists
-## Bethany B. Tabuena
 
 ## Part A — Creating Vectors: c(), seq(), rep()
 
@@ -92,6 +82,7 @@ age <- c(15, 28, 32, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20,
 ```
 
 a. How many data points?
+
 - The vector named "age" has 34 data points. 
 
 b. Find the reciprocal of age?
@@ -128,15 +119,16 @@ rep(c("A","B"), each = 2) and rep(c("A","B"), times = 2) both produce a vector o
 Explain in your own words the
 difference between each and times.
 
--rep(c("A","B"), each = 2) and rep(c("A","B"), times = 2) both produce a vector length of 4 but have different elements order because 
-rep(c("A","B"), each = 2) repeat each vector 2 times, while rep(c("A","B"), times = 2) repeat a vector 2 times.
+- rep(c("A","B"), each = 2) and rep(c("A","B"), times = 2) both produce a vector length of 4 but have different elements order because 
+rep(c("A","B"), each = 2) repeat each element 2 times, while rep(c("A","B"), times = 2) repeat a vector 2 times.
 
 **Question #3:**
 Compare seq(1, 20, by = 2) with seq(1, 20, length.out = 5). What does each argument (by vs length.out) control, and when would you use one over the other in a real analysis?
 
--So seq(1, 20, by = 2) is used to set the steps between the numbers and is used to have a fixed intervals between 2 units. While seq(1, 20, length.out = 5) creates exactly that many evenly spaced values and is used to know how many points you need. So "by" is use for fixed steps and the "length.out" is used when you need a specific number of points across a range. 
+- So seq(1, 20, by = 2) is used to set the steps between the numbers 1 to 20 and jumps by 2 units. While seq(1, 20, length.out = 5) is used to have a equally spaced value from 1 to 20. So "by" is use for fixed steps and the "length.out" is used when you need a specific number of points across a range. 
 
 **Question #4:**
+
 a. Generate a sequence for 20 to 60. Name the vector as vec_num
 
 ```{r}
@@ -178,7 +170,7 @@ names(grades) <- c("Math", "Science", "English", "History", "PE")
 
 grades[3]
 
-# TODO: Access the 1st abd 4th element of grades using positional indexing
+# TODO: Access the 1st and 4th element of grades using positional indexing
 
 grades[c(1,4)]
 
@@ -201,7 +193,7 @@ grades[-c(1,4)]
 
 ```{r}
 grades <- c(88, 92, 79, 95, 84)
-names(grades) <- c("Math", "Science", "English", "History", "PE")
+# names(grades) <- c("Math", "Science", "English", "History", "PE")
 
 # TODO: Use a logical condition to return only the grades that are
 # greater than or equal to 85 (hint: grades[grades >= 85])
@@ -212,11 +204,12 @@ grades[grades >= 85]
 
 
 **Question #5:** 
- -Negative indexing (grades[-1]) removes an element, while logical indexing (grades[grades >= 85]) filters by a condition.
 
- -Describe a real situation where you would need negative indexing, and a different situation where logical indexing would be the better tool.
+ Negative indexing (grades[-1]) removes an element, while logical indexing (grades[grades >= 85]) filters by a condition.
+
+ Describe a real situation where you would need negative indexing, and a different situation where logical indexing would be the better tool.
  
--Negative indexing it use when you know exactly which position to remove like dropping one outlier row you already identified. While logical indexing is used when you want to keep everything that's meets a rule, for example keeping only test scores above a passing threshold.
+- Negative indexing is used when you want to return all elements except the chosen indexes, while logical indexing is used when we want to select elements that meets the condition. We can use negative indexing in situation like removing one element grade from the list. While in situations like you want to meet a certain condition and return an element you have to use logical indexing. For example in the given, the elements that are equal to 85 or higher is returned. 
 
 **Question #6:**
 ```{r}
@@ -226,9 +219,12 @@ grades <- c(85, 90, 78, 92, 88, 76)
 grades[10]
 
 ```
--Running grades[10] return NA instead of an error because in R, it treats the missing position as "unknown value" rather than crashing your whole script. This way, code keeps running even when some indices don't exist. 
+
+- Running an index that doesn't exist which is grades[10] in R will return a NA or Not available which represents missing value. In R it is a unknown value that's why it still runs rather than crashing the script, the code keeps running even when some indices don't exist. 
+
 
 **Question #7:**
+
 Print a vector with the integers between 1 and 100 that are not divisible by 3, 5 and 7 using filter option.
   Filter(function(i) { all(i %% c(3,5,7) != 0) }, seq(100))
   Write the R code and its output.
@@ -281,10 +277,11 @@ append(fruits, "kiwi", after = 1)
 ```
 
 **Question #8:**
-```{r}
- #-In the vectors-recycling chunk, z has 6 elements and short has only 2. R still produced an answer instead of an error.
 
- #-Explain, in your own words, what R’s “recycling rule” did to short to make the addition work.
+```{r}
+ #  In the vectors-recycling chunk, z has 6 elements and short has only 2. R still produced an answer instead of an error.
+
+ # Explain, in your own words, what R’s “recycling rule” did to short to make the addition work.
 
 z <- c(1, 2, 3, 4, 5, 6)
 short <- c(1, 0)
@@ -292,7 +289,7 @@ short <- c(1, 0)
 z + short
 ```
 
--R uses its recycling rule to repeat a shorter vector when performing element-wise operations. If the longer vector's length is a multiple of the shorter vector's length, recycling generally occurs without a warning. Otherwise, R warns that the lengths are not exact multiples. 
+- R uses it's recycling rule repeat the small length vector as long as it complete the operation on long length vector. In vector recycling, the length of the long length vectors should be the multiple of the length of the small length vector. If not we will get a warning. 
 
 **Question #9:**
 
@@ -304,6 +301,8 @@ z + c(1, 0, 1)
 
 ```
 
+- Yes, it worked cleanly. 
+
 ```{r}
 #Then try adding z to c(1, 0, 1, 1) (length 4). Compare the warning (or lack of one) in each case, and explain what condition determines whether R recycles silently versus with a warning.
 
@@ -311,7 +310,8 @@ z <- c(1, 2, 3, 4, 5, 6)
 
 z + c(1, 0, 1, 1)
 ```
--R recycles without a warning when the longer vectors length is a multiple of the shorter vectors length.Otherwise, it gives a warning because the recycling is incomplete.
+
+- R recycles silently when the longer object is multiple of the shortest object length. R gives a a warning when the longer object is not a multiple of the shortest object length. So when we run the script above it gives a warning. 
 
 ## Part D — Lists: Creating and Subsetting
 
@@ -370,15 +370,14 @@ class(student["grades"])
 class(student[["grades"]])
 ```
 
--The single brackets[] return a list containing the selected element.
--The double brackets[[]] extract the element itself. 
+- The single bracket[] is used to return a list. The double-bracket[[]] is used to return the element itself.  
 
 
 **Question #11:**
 
 Why do you think R makes a distinction between [ ] and [[ ]] for lists, but a vector only needs [ ]? Think about what a list can contain that a vector cannot.
 
--List can contain different data types, so R provides both ways to select elements.A vector generally contains values of the same type and uses [] for subsetting. 
+- R makes a distinction between [ ] and [[ ]] for list because list can contain different data types and R provide both ways to selects elements. Vectors on the other hand contains values that have the same data types and uses only [ ] for subsetting. List can contain different data types while vectors cannot. 
 
 ## Part E — Critical Thinking Challenge
 
@@ -401,6 +400,12 @@ inventory$item[inventory$in_stock]
 # inventory$item, 15.00 to inventory$price, and TRUE to inventory$in_stock.
 # (You will need three separate append() calls, one per vector.)
 
+inventory <- list(
+  item = c("Notebook", "Pen", "Eraser"),
+  price = c(25.50, 10.00, 5.00),
+  in_stock = c(TRUE, TRUE, FALSE)
+)
+
 inventory$item <- append(inventory$item, "Ruler")
 
 inventory$price <- append(inventory$price, 15.00)
@@ -409,5 +414,25 @@ inventory$in_stock <- append(inventory$in_stock, TRUE)
 
 inventory
 ```
+
+
+**Question #12:**
+
+In challenge-1, you combined logical indexing on one vector (in_stock) to filter a different vector (item) inside the same list. Explain, step by step, why inventory item[inventory in stock] works even though item and in_stock are stored as separate elements of the list.
+
+- First, inventory item returns the value of vector of product names. Next, inventory in stock returns the value of vector TRUE or FALSE. In R those who have the value of logical TRUE are returned, that's why Notebook and Pen are returned. 
+
+
+**Question #13:**
+
+Suppose a classmate stores related data as three separate, unconnected vectors (item_names, item_prices, item_stock) instead of grouping them into one list like inventory. What risks or bugs could this create as the dataset grows or gets reordered? Argue for or against using a list (or, later, a data frame) instead of separate vectors.
+
+- Using three separate, unconnected vectors can cause errors as the data grows or gets reordered because the item names, prices, and stock might not match anymore. Using a list can help to organized and grouped related information. Data frame can also be used because each rows  represents observations which are the products and the columns represent variables which here stores a different property. 
+
+## Conclusion
+
+In 3–4 sentences, summarize the key differences between vectors and lists in R, and explain when you would choose one data structure over the other.
+
+- Vectors is an one-dimensional ordered collection of elements, all of the same data type, while list can store different data types together. We should use vectors if we want to combine multiple elements of the same data types and if the values are related to each but have different data types we should use list. Vectors are useful for calculations, sequences and collection of similar values. List is often used to store related information and return multiple results from functions. 
 
 
